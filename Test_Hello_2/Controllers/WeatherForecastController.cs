@@ -16,6 +16,11 @@ namespace Test_Hello_2.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching", "Pleasantly Suprised"
         };
 
+        private static readonly string[] Happinesses = new[]
+        {
+            "Good Day!", "Wonderful Life", "Nice Hat!"
+        };
+
         private readonly ILogger<WeatherForecastController> _logger;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
@@ -31,7 +36,8 @@ namespace Test_Hello_2.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
+                HappyTime = Happinesses[rng.Next(Happinesses.Length)]
             })
             .ToArray();
         }
